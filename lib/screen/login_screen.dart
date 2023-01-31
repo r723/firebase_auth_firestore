@@ -80,7 +80,7 @@ class _MyWidgetState extends State<loginUi> {
                   "email_address": emailController.text,
                   "password": passwordController.text,
                 };
-                var res = await _provider!.loginMe(map);
+                var res = await _provider!.loginMeAuth(map);
                 if (res.isRight()) {
                   navigator.pushNamedAndRemoveUntil(Routes.HOME);
                 }
@@ -88,6 +88,28 @@ class _MyWidgetState extends State<loginUi> {
               child: const Text(
                 'Login',
                 style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            height: 50,
+            width: 250,
+            decoration: BoxDecoration(
+                border: Border.all(color: Palette.appTheme.primaryColor),
+                borderRadius: BorderRadius.circular(20)),
+            child: TextButton(
+              onPressed: () async {
+                var res = await _provider!.signInWithGoogle();
+                print("res ==>$res");
+                if (res.isRight()) {
+                  await navigator.pushNamedAndRemoveUntil(Routes.HOME);
+                }
+              },
+              child: Text(
+                'Google sign in',
+                style: TextStyle(
+                    color: Palette.appTheme.primaryColor, fontSize: 25),
               ),
             ),
           ),

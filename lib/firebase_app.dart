@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen/add_data.dart';
 import 'package:flutter_application_1/screen/home_screen.dart';
 import 'package:flutter_application_1/screen/login_screen.dart';
 import 'package:flutter_application_1/screen/register_screen.dart';
@@ -30,6 +31,9 @@ class FirebaseAppWidgetTree extends StatelessWidget {
         ],
         onGenerateRoute: (RouteSettings settings) {
           Widget? screen;
+        var args =
+              settings.arguments;
+
           switch (settings.name) {
             case Routes.LOGIN:
               screen = const LoginScreen();
@@ -40,6 +44,9 @@ class FirebaseAppWidgetTree extends StatelessWidget {
             case Routes.HOME:
               screen = const HomeScreen();
               break;
+            case Routes.DETAIL:
+              screen = getSyncUserProfileScreen(args: args);
+              break;
           }
 
           return MaterialPageRoute(
@@ -48,6 +55,13 @@ class FirebaseAppWidgetTree extends StatelessWidget {
         },
       );
     });
+  }
+
+  Widget getSyncUserProfileScreen({var args}) {
+    return AddDataClass(
+      isFromEdit: args?[Args.ISFROMEDIT],
+      toDoModel: args?[Args.TODOITEM],
+    );
   }
 }
 

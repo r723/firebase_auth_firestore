@@ -89,7 +89,8 @@ class ApiData implements ApiInterface {
         createdAt: Timestamp.fromDate(map["time"]),
         title: map["title"],
         subTitle: map["subTitle"],
-        isEdited: map["isEdited"]);
+        isEdited: map["isEdited"],
+        place: map["place"]);
 
     if (map["collectionId"] != "") {
       await FirebaseFirestore.instance

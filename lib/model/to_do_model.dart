@@ -4,6 +4,7 @@ class ToDoModel {
   String? collectionId;
   String? title;
   String? subTitle;
+  String? place;
   Timestamp? createdAt;
   bool? isEdited;
 
@@ -12,15 +13,17 @@ class ToDoModel {
       this.title,
       this.subTitle,
       this.createdAt,
-      this.isEdited});
+      this.isEdited,
+      this.place});
 
   Map<String, dynamic> toMap(ToDoModel user) {
-    var data = Map<String, dynamic>();
+    var data = <String, dynamic>{};
     data['collection_id'] = user.collectionId;
     data['title'] = user.title;
     data['subTitle'] = user.subTitle;
     data['createdAt'] = user.createdAt;
     data['isEdited'] = user.isEdited;
+    data['place'] = user.place;
     return data;
   }
 
@@ -31,5 +34,6 @@ class ToDoModel {
     subTitle = mapData['subTitle'];
     createdAt = mapData['createdAt'];
     isEdited = mapData["isEdited"];
+    place = mapData["place"];
   }
 }

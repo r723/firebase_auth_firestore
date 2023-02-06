@@ -2,10 +2,11 @@ class Routes {
   static const LOGIN = 'LOGIN';
   static const REGISTER = 'REGISTER';
   static const HOME = 'HOME';
+  static const DETAIL = 'DETAIL';
 }
 
 class Args {
-  static const BOOLEAN = 'BOOLEAN';
+  static const TODOITEM = 'todoItem';
   static const DATA = 'DATA';
   static const DQ = 'DQ';
   static const ID = 'ID';
@@ -15,7 +16,7 @@ class Args {
   static const NAME = 'NAME';
   static const EXT = 'EXT';
   static const MAP = 'MAP';
-  static const DETAILS = 'DETAILS';
+  static const ISFROMEDIT = 'isFromEdit';
   static const TYPE_2 = 'TYPE_2';
   static const CURRENCY = 'CURRENCY';
   static const LIST = 'LIST';
